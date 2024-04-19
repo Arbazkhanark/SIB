@@ -1,0 +1,39 @@
+{
+    "builds":[
+        {
+            "src":"index.js",
+            "use":"@vercel/node"
+        },
+        {
+            "src":"dist/**",
+            "use":"@vercel/static"
+        }
+    ],
+    "routes":[
+        {
+            "src":"/api/(.*)",
+            "dest":"index.js"
+        },
+        {
+            "src":"/",
+            "dest":"dist/index.html"
+        },
+        {
+            "src":"/createPost",
+            "dest":"dist/index.html"
+        },
+        {
+            "src":"/singlePost",
+            "dest":"dist/index.html"
+        },
+        {
+            "src":"/updatePost",
+            "dest":"dist/index.html"
+        },
+
+        {
+            "src":"/(.+)",
+            "dest":"dist/$1"
+        }
+    ]
+}
